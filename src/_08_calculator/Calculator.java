@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -64,18 +65,43 @@ public class Calculator implements ActionListener{
 		
 	}
 	
-	
-	public void add() {
-		
-		
-		
-	}
 
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
 		
+		String fieldone = field1.getText();
+		
+		int one = Integer.parseInt(fieldone);
+		
+		String fieldtwo = field2.getText();
+		
+		int two = Integer.parseInt(fieldtwo);
+		
+		if (e.getSource() == add) {
+			
+			JOptionPane.showMessageDialog(null, one + two);
+			
+		}
+		
+		if (e.getSource() == sub) {
+			
+			JOptionPane.showMessageDialog(null, one - two);
+			
+		}
+		
+		if (e.getSource() == div) {
+			
+			JOptionPane.showMessageDialog(null, one / two);
+			
+		}
+		
+		if (e.getSource() == mul) {
+			
+			JOptionPane.showMessageDialog(null, one * two);
+			
+		}
+
 	}
 	
 }
