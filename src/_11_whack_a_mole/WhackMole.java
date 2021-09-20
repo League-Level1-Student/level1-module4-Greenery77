@@ -50,7 +50,7 @@ public class WhackMole implements ActionListener {
 			
 			JOptionPane.showMessageDialog(null, "You lost :( Game over.");
 			
-			
+			System.exit(0);
 			
 		}
 		
