@@ -11,9 +11,16 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class SlotMachine implements ActionListener{
+	
+	int pic = 0;
+	
+	int picc = 0;
+	
+	int piccc = 0;
 	
 	JButton spin = new JButton();
 	
@@ -31,6 +38,10 @@ public class SlotMachine implements ActionListener{
 	
 	public void createUI() {
 		
+		frame = new JFrame();
+		
+		panel = new JPanel();
+		
 		frame.setVisible(true);
 		
 		spin.setLabel("SPIN");
@@ -40,37 +51,46 @@ public class SlotMachine implements ActionListener{
 		panel.add(spin);
 		
 		frame.add(panel);
+
+		frame.pack();
+
+		pic = ran.nextInt(3);
+
+		picc = ran.nextInt(3);
 		
+		piccc = ran.nextInt(3);
+		
+		one = createRandom(pic);
+
+		two = createRandom(picc);
+
+		three = createRandom(piccc);
+
+		panel.add(one);
+
+		panel.add(two);
+
+		panel.add(three);
+
+		one.setSize(500, 500);
+
+		two.setSize(500, 500);
+
+		three.setSize(500, 500);
+
 		frame.pack();
 		
-
-	}
-	
-	public void actionPerformed(ActionEvent e) {
-		
-		if (e.getSource() == spin) {
+		if (pic == picc && picc == piccc){
 			
-			one = createRandom(ran.nextInt(3));
-				
-			two = createRandom(ran.nextInt(3));
+			JOptionPane.showMessageDialog(null, "You won!");
 		
-			three = createRandom(ran.nextInt(3));
+			System.exit(0);
 			
 		}
 		
-		panel.add(one);
-		
-		panel.add(two);
-		
-		panel.add(three);
-		
-		one.setSize(500, 500);
-		
-		two.setSize(500, 500);
-		
-		three.setSize(500, 500);
-		
-		frame.pack();
+	}
+	
+	public void actionPerformed(ActionEvent e) {
 		
 		frame.dispose();
 		
@@ -105,7 +125,7 @@ public class SlotMachine implements ActionListener{
 		else {
 
 			try {
-				return createLabelImage("banana.jpg");
+				return createLabelImage("bananana.jpeg");
 			} catch (MalformedURLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
